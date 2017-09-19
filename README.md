@@ -73,8 +73,8 @@ For better performance please ensure that the browser has acces to the graphics 
 	* m: to toggle the use of the mouse as cursor on and off. Repeated toggling might break the raycaster, resulting in not being able to click on some objects.
 
 * Make sure that: 
-	* Text is put in elements that normaly contain text, like <p> or <span>
-	* Text doesn't have any other elements in them, like <span>
+	* Text is put in elements that normaly contain text, like ``` <p> ``` or ``` <span> ```
+	* Text doesn't have any other elements in them, like ``` <span> ```
 
 ---
 
