@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="noindex, nofollow, notranslate, noimageindex">
+	<title>ProFlow VodLib</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link href="icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+	<style type="text/css">
+		body{
+			background: white;
+		}
+
+		@keyframes colorchange {
+		    from {background-color: red;}
+		    50% {background-color: yellow;}
+		    to {background-color: red;}
+		}
+
+		.still{
+			width: 100px;
+			height: 100px;
+			float: left;
+			background-color: blue;
+		}
+		
+		.animated{
+			width: 100px;
+			height: 100px;
+			float: left;
+			background-color: red;
+			animation: 1s colorchange infinite;
+		}
+
+		.parent{
+			margin: 2px;
+			overflow: hidden;
+			clear: both;
+		}
+	</style>
+	
+</head>
+<body class="tvTheek">
+
+	<div>
+		<input type="number" id="quantity" min="1" value="1">
+		<button type="button" onclick="addDivs(document.getElementById('quantity').value)">Add DIVs</button>
+		<button type="button" onclick="addAnimatedDivs(document.getElementById('quantity').value)">Add animated DIVs</button>
+		<p>(Put a number in the box and press one of the add buttons)</p>
+	</div>
+	
+
+	<script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+	<script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+	<script src="../dom2aframe/element-resize-detector.min.js"></script>
+
+	<script src="../dom2aframe/aframe-video-bundle.js"></script>
+	<script src="../dom2aframe/aframe-stereo-component.js"></script>
+	<script src="../dom2aframe/aframe-video-controls.js"></script>
+
+	<script src="../dom2aframe/dom2aframe-assetmanager.js"></script>
+	<script src="../dom2aframe/dom2aframe-elements.js"></script>
+	<script src="../dom2aframe/dom2aframe-camera.js"></script>
+	<script src="../dom2aframe/dom2aframe-controllers.js"></script>
+	<script src="../dom2aframe/dom2aframe.js"></script>
+
+	<script type="text/javascript">
+		function addAnimatedDivs(num, bool){
+
+			for(num; num > 0; num--){
+
+				if(bool){
+					setTimeout(function () {
+				        var div = document.createElement("div");
+						div.setAttribute("class","animated")
+						document.body.appendChild(div);
+				    }, 300 * num);
+				}else{
+					var div = document.createElement("div");
+					div.setAttribute("class","animated")
+					document.body.appendChild(div);
+				}
+
+				log("Add elements");
+
+			}
+		}
+
+		function addDivs(num){
+			for(; num > 0; num--){
+				var div = document.createElement("div");
+					div.setAttribute("class","still")
+					document.body.appendChild(div);
+			}
+		}
+	</script>
+</body>
+</html>
